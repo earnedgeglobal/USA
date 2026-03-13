@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnEdge Global — Google Reviews for USA Businesses</title>
+<meta name="description" content="Get 50 genuine Google Maps reviews for your business starting at just $49. Trusted by local businesses across the USA.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#060d1f;--deep:#0a1628;--card:#0f1e35;
+  --blue:#2d7ef7;--blue2:#5b9fff;
+  --gold:#e8c96a;--gold2:#c9a84c;
+  --silver:#a8b8d0;--white:#f0f4ff;
+  --green:#22c55e;--border:rgba(45,126,247,0.18);
+  --wp:#25D366;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* BG */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(45,126,247,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,126,247,0.04) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 100% 80% at 50% 0%,black,transparent)}
+.orb1,.orb2{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(45,126,247,0.15),transparent 70%);top:-250px;left:-200px;animation:o1 16s ease-in-out infinite}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(232,201,106,0.07),transparent 70%);bottom:-100px;right:-100px;animation:o2 20s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,50px)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,-40px)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:rgba(6,13,31,0.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(45,126,247,0.1)}
+.nl{display:flex;align-items:center;gap:10px}
+.nl-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#1a5fc8,#2d7ef7);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:14px;font-weight:900;color:#fff;
+  box-shadow:0 4px 12px rgba(45,126,247,0.35);flex-shrink:0}
+.nl-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700}
+.nl-text .e{color:var(--white)}.nl-text .g{color:var(--blue)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-wp{display:inline-flex;align-items:center;gap:6px;
+  background:#25D366;color:white;font-size:12px;font-weight:700;
+  padding:8px 16px;border-radius:30px;text-decoration:none;
+  box-shadow:0 4px 14px rgba(37,211,102,0.35);transition:all 0.3s;white-space:nowrap}
+.nav-wp:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,0.5)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#1a5fc8,#2d7ef7);color:white;
+  font-size:12px;font-weight:700;padding:8px 16px;border-radius:30px;
+  text-decoration:none;box-shadow:0 4px 14px rgba(45,126,247,0.35);
+  transition:all 0.3s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(45,126,247,0.5)}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:110px 24px 70px}
+.hero-flag{font-size:40px;margin-bottom:16px;animation:fadeUp 0.6s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);
+  color:#4ade80;font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:7px 18px;border-radius:30px;
+  margin-bottom:24px;animation:fadeUp 0.6s 0.05s ease both}
+.hb-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'Playfair Display',serif;
+  font-size:clamp(32px,6vw,66px);font-weight:900;line-height:1.1;
+  margin-bottom:18px;animation:fadeUp 0.6s 0.1s ease both}
+.hero h1 .blue{color:var(--blue);text-shadow:0 0 40px rgba(45,126,247,0.4)}
+.hero h1 .gold{color:var(--gold)}
+.hero-sub{font-size:clamp(14px,2vw,18px);font-weight:300;color:var(--silver);
+  max-width:600px;line-height:1.75;margin-bottom:14px;
+  animation:fadeUp 0.6s 0.15s ease both}
+.hero-sub strong{color:var(--white);font-weight:600}
+.hero-compare{display:inline-block;
+  background:rgba(232,201,106,0.08);border:1px solid rgba(232,201,106,0.25);
+  color:var(--gold);font-size:13px;font-weight:600;
+  padding:8px 20px;border-radius:20px;margin-bottom:32px;
+  animation:fadeUp 0.6s 0.2s ease both}
+
+/* Hero price pills */
+.hero-prices{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+  margin-bottom:32px;animation:fadeUp 0.6s 0.25s ease both}
+.hp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:14px 18px;text-align:center;min-width:100px;
+  transition:all 0.3s;cursor:default}
+.hp-card.popular{border-color:rgba(45,126,247,0.4);background:rgba(45,126,247,0.08)}
+.hp-name{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:5px}
+.hp-price{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--white)}
+.hp-reviews{font-size:11px;color:var(--silver);margin-top:3px}
+.hp-badge{font-size:9px;font-weight:700;background:var(--blue);color:#fff;
+  padding:2px 8px;border-radius:10px;margin-top:5px;display:inline-block;letter-spacing:1px}
+
+/* Hero CTA buttons */
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+  margin-bottom:14px;animation:fadeUp 0.6s 0.3s ease both}
+.btn-main{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#1a5fc8,#2d7ef7);color:white;
+  font-size:16px;font-weight:700;padding:16px 36px;border-radius:50px;
+  text-decoration:none;box-shadow:0 8px 28px rgba(45,126,247,0.45);
+  transition:all 0.3s;border:1px solid rgba(255,255,255,0.15)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(45,126,247,0.6)}
+.btn-wp{display:inline-flex;align-items:center;gap:10px;
+  background:#25D366;color:white;
+  font-size:16px;font-weight:700;padding:16px 36px;border-radius:50px;
+  text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,0.4);
+  transition:all 0.3s;border:1px solid rgba(255,255,255,0.15)}
+.btn-wp:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,211,102,0.6)}
+.btn-note{font-size:12px;color:rgba(168,184,208,0.45);animation:fadeUp 0.6s 0.35s ease both}
+.btn-note span{color:#4ade80;font-weight:600}
+
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:rgba(168,184,208,0.3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.sh-line{width:1px;height:28px;background:linear-gradient(to bottom,rgba(45,126,247,0.5),transparent);animation:shA 2s ease-in-out infinite}
+@keyframes shA{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(0.4);opacity:0.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 24px}
+.sec-eye{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:900;color:var(--white);margin-bottom:10px;line-height:1.2}
+.sec-title span{color:var(--blue)}
+.sec-sub{font-size:14px;color:var(--silver);line-height:1.7;margin-bottom:32px}
+.sec-pad{padding:56px 0}
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(45,126,247,0.2),transparent);margin:0 24px}
+
+/* TRUST BAR */
+.trust-inner{background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:0;position:relative;overflow:hidden;margin-bottom:56px}
+.trust-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--blue),var(--gold),transparent)}
+.ti{text-align:center;padding:14px;border-right:1px solid rgba(255,255,255,0.05)}
+.ti:last-child{border-right:none}
+.ti-val{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1;margin-bottom:5px}
+.ti-val.b{color:var(--blue)}.ti-val.g{color:#4ade80}.ti-val.gold{color:var(--gold)}.ti-val.w{color:var(--white)}
+.ti-lbl{font-size:11px;color:var(--silver)}
+@media(max-width:540px){.ti{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05)}.ti:last-child{border-bottom:none}}
+
+/* ══ PRICING CARDS ══ */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.pkg{background:var(--card);border:1px solid rgba(255,255,255,0.07);
+  border-radius:22px;overflow:hidden;position:relative;
+  transition:transform 0.3s,border-color 0.3s}
+.pkg:hover{transform:translateY(-5px)}
+.pkg.popular{border-color:rgba(45,126,247,0.35)}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pkg.starter::before{background:linear-gradient(to right,#22c55e,#16a34a)}
+.pkg.popular::before{background:linear-gradient(to right,#2d7ef7,#e8c96a)}
+.pkg.premium::before{background:linear-gradient(to right,#e8c96a,#c9a84c)}
+.pkg-popular-tag{position:absolute;top:14px;right:14px;
+  background:var(--blue);color:#fff;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.pkg-top{padding:26px 24px 18px}
+.pkg-icon{font-size:26px;margin-bottom:12px}
+.pkg-name{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--silver);margin-bottom:8px}
+.pkg-price{display:flex;align-items:baseline;gap:3px;margin-bottom:4px}
+.pkg-dollar{font-size:20px;font-weight:700;color:var(--silver);margin-top:4px}
+.pkg-amount{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--white);line-height:1}
+.pkg-old{font-size:13px;color:var(--silver);text-decoration:line-through;opacity:0.4;margin-left:4px;align-self:center}
+.pkg-reviews{font-size:14px;color:var(--silver);margin-bottom:4px}
+.pkg-save{display:inline-block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);
+  color:#4ade80;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:16px}
+.pkg-divider{height:1px;background:rgba(255,255,255,0.06);margin:0 24px}
+.pkg-features{padding:18px 24px 20px}
+.feat{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;font-size:13px;color:var(--silver)}
+.feat:last-child{margin-bottom:0}
+.feat-check{color:#4ade80;flex-shrink:0;margin-top:1px}
+
+/* Package action buttons */
+.pkg-actions{padding:0 24px 24px;display:flex;flex-direction:column;gap:8px}
+.pkg-btn-pay{display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#1a5fc8,#2d7ef7);color:white;
+  font-size:14px;font-weight:700;padding:13px;border-radius:12px;
+  text-decoration:none;text-align:center;
+  box-shadow:0 6px 18px rgba(45,126,247,0.35);
+  transition:all 0.3s;border:none;cursor:pointer;width:100%}
+.pkg-btn-pay:hover{box-shadow:0 10px 28px rgba(45,126,247,0.55);transform:translateY(-2px)}
+.pkg.popular .pkg-btn-pay{background:linear-gradient(135deg,#c9a84c,#e8c96a);color:#060d1f;
+  box-shadow:0 6px 18px rgba(232,201,106,0.3)}
+.pkg.popular .pkg-btn-pay:hover{box-shadow:0 10px 28px rgba(232,201,106,0.5)}
+.pkg-btn-wp{display:flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);
+  color:#4ade80;font-size:13px;font-weight:600;padding:10px;
+  border-radius:12px;text-decoration:none;transition:all 0.3s}
+.pkg-btn-wp:hover{background:rgba(37,211,102,0.18);transform:translateY(-1px)}
+
+
+
+/* CONTACT STRIP */
+.contact-strip{background:var(--card);border:1px solid var(--border);
+  border-radius:18px;padding:28px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;
+  margin-bottom:56px}
+.cs-label{font-size:13px;font-weight:600;color:var(--silver);margin-right:4px}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:30px;font-size:13px;font-weight:700;
+  text-decoration:none;transition:all 0.3s}
+.cb-wp{background:#25D366;color:white;box-shadow:0 4px 14px rgba(37,211,102,0.3)}
+.cb-wp:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,0.5)}
+.cb-wp2{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);color:#4ade80}
+.cb-wp2:hover{background:rgba(37,211,102,0.18)}
+.cb-email{background:rgba(45,126,247,0.1);border:1px solid rgba(45,126,247,0.3);color:var(--blue2)}
+.cb-email:hover{background:rgba(45,126,247,0.18)}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.why-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:16px;padding:22px;transition:border-color 0.3s,transform 0.3s}
+.why-card:hover{border-color:rgba(45,126,247,0.25);transform:translateY(-3px)}
+.wc-icon{font-size:26px;margin-bottom:12px}
+.wc-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:7px}
+.wc-desc{font-size:12px;color:var(--silver);line-height:1.65}
+
+/* BUSINESSES */
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.biz-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;padding:16px 12px;text-align:center;transition:all 0.3s}
+.biz-card:hover{border-color:rgba(45,126,247,0.3);transform:translateY(-3px)}
+.biz-icon{font-size:26px;margin-bottom:7px}
+.biz-name{font-size:12px;font-weight:600;color:var(--white);margin-bottom:3px}
+.biz-note{font-size:10px;color:var(--silver);opacity:0.6}
+
+/* HOW IT WORKS */
+.steps{display:flex;flex-direction:column;gap:0;max-width:680px;margin:0 auto}
+.step{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.step:last-child{border-bottom:none}
+.step-num{width:40px;height:40px;border-radius:11px;flex-shrink:0;
+  background:rgba(45,126,247,0.1);border:1px solid rgba(45,126,247,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:var(--blue);margin-top:2px}
+.step-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--silver);line-height:1.65}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.tc{background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:16px;padding:22px;transition:border-color 0.3s}
+.tc:hover{border-color:rgba(45,126,247,0.2)}
+.tc-stars{font-size:13px;letter-spacing:2px;margin-bottom:10px}
+.tc-text{font-size:13px;color:var(--silver);line-height:1.7;margin-bottom:14px;font-style:italic}
+.tc-author{display:flex;align-items:center;gap:10px}
+.tc-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.tc-name{font-size:13px;font-weight:700;color:var(--white)}
+.tc-biz{font-size:11px;color:var(--silver);opacity:0.6;margin-top:2px}
+
+/* FINAL CTA */
+.fcta-box{background:linear-gradient(135deg,#0d1f4a,#0a1628);
+  border:1px solid rgba(45,126,247,0.3);border-radius:26px;
+  padding:48px 32px;text-align:center;position:relative;overflow:hidden;margin-bottom:80px}
+.fcta-box::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(45,126,247,0.1),transparent)}
+.fcta-box::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--blue),var(--gold),transparent)}
+.fcta-tag{display:inline-block;background:rgba(232,201,106,0.1);
+  border:1px solid rgba(232,201,106,0.3);color:var(--gold);
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:18px;position:relative}
+.fcta-box h2{font-family:'Playfair Display',serif;
+  font-size:clamp(22px,4vw,40px);font-weight:900;
+  color:var(--white);line-height:1.15;margin-bottom:10px;position:relative}
+.fcta-box h2 span{color:var(--blue)}
+.fcta-box p{font-size:14px;color:var(--silver);line-height:1.7;margin-bottom:24px;position:relative}
+.fcta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;position:relative}
+
+/* FOOTER */
+footer{position:relative;z-index:1;
+  background:rgba(6,13,31,0.95);border-top:1px solid rgba(255,255,255,0.05);
+  padding:32px 24px;text-align:center}
+.f-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px}
+.f-logo .e{color:var(--white)}.f-logo .g{color:var(--blue)}
+.f-contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:14px 0}
+.f-contact-btn{display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s}
+.fc-wp{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);color:#4ade80}
+.fc-email{background:rgba(45,126,247,0.1);border:1px solid rgba(45,126,247,0.25);color:var(--blue2)}
+footer p{font-size:11px;color:rgba(168,184,208,0.3);margin-top:6px}
+
+/* FLOAT MOBILE */
+.float-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:rgba(6,13,31,0.97);border-top:1px solid rgba(45,126,247,0.2);
+  padding:12px 16px;gap:10px}
+@media(max-width:640px){.float-bar{display:flex}}
+.fb-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px;border-radius:14px;font-size:14px;font-weight:700;text-decoration:none}
+.fb-pay{background:linear-gradient(135deg,#1a5fc8,#2d7ef7);color:white;
+  box-shadow:0 4px 14px rgba(45,126,247,0.4)}
+.fb-wp{background:#25D366;color:white;box-shadow:0 4px 14px rgba(37,211,102,0.35)}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="orb1"></div>
+<div class="orb2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nl">
+    <div class="nl-icon">EE</div>
+    <div class="nl-text"><span class="e">Earn</span><span class="g">Edge</span></div>
+  </div>
+  <div class="nav-actions">
+    <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20have%20a%20query%20about%20your%20Google%20Reviews%20service." target="_blank" class="nav-wp">💬 WhatsApp</a>
+    <a href="#pricing" class="nav-cta">View Plans →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-flag">🇺🇸</div>
+  <div class="hero-badge"><span class="hb-dot"></span> Trusted by USA Local Businesses</div>
+  <h1>More Google Reviews.<br><span class="blue">More Customers.</span><br><span class="gold">More Revenue.</span></h1>
+  <p class="hero-sub">Your customers check Google before they walk in.<br><strong>We help your business get the reviews it deserves</strong> — fast, affordable & professional.</p>
+  <div class="hero-compare">🔥 Up to 78% cheaper than competitors — Starting at just $49</div>
+
+  <div class="hero-prices">
+    <div class="hp-card">
+      <div class="hp-name">Starter</div>
+      <div class="hp-price">$49</div>
+      <div class="hp-reviews">20 Reviews</div>
+    </div>
+    <div class="hp-card popular">
+      <div class="hp-name">Standard</div>
+      <div class="hp-price">$89</div>
+      <div class="hp-reviews">50 Reviews</div>
+      <div class="hp-badge">POPULAR</div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-name">Premium</div>
+      <div class="hp-price">$179</div>
+      <div class="hp-reviews">100 Reviews</div>
+    </div>
+  </div>
+
+  <div class="hero-ctas">
+    <a href="#pricing" class="btn-main">🚀 See All Plans</a>
+    <a href="https://wa.me/919409023210?text=Hi!%20I%20want%20to%20get%20more%20Google%20reviews%20for%20my%20business." target="_blank" class="btn-wp">💬 WhatsApp Us</a>
+  </div>
+  <div class="btn-note"><span>✅ No contracts</span> &nbsp;·&nbsp; <span>✅ Results in 7 days</span> &nbsp;·&nbsp; <span>✅ 100% Safe</span></div>
+
+  <div class="scroll-hint"><div class="sh-line"></div><span>Scroll</span></div>
+</section>
+
+<div class="wrap">
+
+  <!-- TRUST BAR -->
+  <div class="trust-inner">
+    <div class="ti"><div class="ti-val b">500+</div><div class="ti-lbl">Businesses Served</div></div>
+    <div class="ti"><div class="ti-val gold">$49</div><div class="ti-lbl">Starting Price</div></div>
+    <div class="ti"><div class="ti-val g">7 Days</div><div class="ti-lbl">Delivery Time</div></div>
+    <div class="ti"><div class="ti-val w">100%</div><div class="ti-lbl">Safe Process</div></div>
+    <div class="ti"><div class="ti-val b">4.9★</div><div class="ti-lbl">Client Rating</div></div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="sec-pad" id="pricing">
+    <div class="sec-eye">Pricing</div>
+    <div class="sec-title">Simple, <span>Affordable Packages</span></div>
+    <div class="sec-sub">No hidden fees. No contracts. Pay once, get results.</div>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="pkg starter">
+        <div class="pkg-top">
+          <div class="pkg-icon">🥉</div>
+          <div class="pkg-name">Starter</div>
+          <div class="pkg-price"><span class="pkg-dollar">$</span><span class="pkg-amount">49</span><span class="pkg-old">$160</span></div>
+          <div class="pkg-reviews">20 Google Reviews</div>
+          <div class="pkg-save">Save 70% — Limited Time</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="feat"><span class="feat-check">✅</span> 20 genuine Google reviews</div>
+          <div class="feat"><span class="feat-check">✅</span> 3–5 star ratings</div>
+          <div class="feat"><span class="feat-check">✅</span> Delivered in 7 days</div>
+          <div class="feat"><span class="feat-check">✅</span> Screenshot proof provided</div>
+          <div class="feat"><span class="feat-check">✅</span> Email & WhatsApp support</div>
+        </div>
+        <div class="pkg-actions">
+          <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Starter%20Package%20(20%20Reviews%20-%20%2449).%20I%27d%20like%20to%20get%20started.%20Please%20share%20payment%20details." target="_blank" class="pkg-btn-pay">💬 Contact Us — Get Starter Plan</a>
+          <a href="https://wa.me/917359908942?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Starter%20Package%20(20%20Reviews%20-%20%2449).%20Please%20share%20details." target="_blank" class="pkg-btn-wp">💬 WhatsApp — Alt Number</a>
+        </div>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="pkg popular">
+        <div class="pkg-popular-tag">⭐ MOST POPULAR</div>
+        <div class="pkg-top">
+          <div class="pkg-icon">🥈</div>
+          <div class="pkg-name">Standard</div>
+          <div class="pkg-price"><span class="pkg-dollar">$</span><span class="pkg-amount">89</span><span class="pkg-old">$400</span></div>
+          <div class="pkg-reviews">50 Google Reviews</div>
+          <div class="pkg-save">Save 78% — Best Value</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="feat"><span class="feat-check">✅</span> 50 genuine Google reviews</div>
+          <div class="feat"><span class="feat-check">✅</span> 3–5 star ratings</div>
+          <div class="feat"><span class="feat-check">✅</span> Delivered in 7 days</div>
+          <div class="feat"><span class="feat-check">✅</span> Screenshot proof provided</div>
+          <div class="feat"><span class="feat-check">✅</span> Priority WhatsApp support</div>
+          <div class="feat"><span class="feat-check">✅</span> Full delivery report</div>
+        </div>
+        <div class="pkg-actions">
+          <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Standard%20Package%20(50%20Reviews%20-%20%2489).%20I%27d%20like%20to%20get%20started.%20Please%20share%20payment%20details." target="_blank" class="pkg-btn-pay">💬 Contact Us — Get Standard Plan</a>
+          <a href="https://wa.me/917359908942?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Standard%20Package%20(50%20Reviews%20-%20%2489).%20Please%20share%20details." target="_blank" class="pkg-btn-wp">💬 WhatsApp — Alt Number</a>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pkg premium">
+        <div class="pkg-top">
+          <div class="pkg-icon">🥇</div>
+          <div class="pkg-name">Premium</div>
+          <div class="pkg-price"><span class="pkg-dollar">$</span><span class="pkg-amount">179</span><span class="pkg-old">$800</span></div>
+          <div class="pkg-reviews">100 Google Reviews</div>
+          <div class="pkg-save">Save 78% — Maximum Impact</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="feat"><span class="feat-check">✅</span> 100 genuine Google reviews</div>
+          <div class="feat"><span class="feat-check">✅</span> 3–5 star ratings</div>
+          <div class="feat"><span class="feat-check">✅</span> Delivered in 10 days</div>
+          <div class="feat"><span class="feat-check">✅</span> Screenshot proof provided</div>
+          <div class="feat"><span class="feat-check">✅</span> VIP WhatsApp support</div>
+          <div class="feat"><span class="feat-check">✅</span> Full delivery report</div>
+          <div class="feat"><span class="feat-check">✅</span> Free follow-up consultation</div>
+        </div>
+        <div class="pkg-actions">
+          <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Premium%20Package%20(100%20Reviews%20-%20%24179).%20I%27d%20like%20to%20get%20started.%20Please%20share%20payment%20details." target="_blank" class="pkg-btn-pay">💬 Contact Us — Get Premium Plan</a>
+          <a href="https://wa.me/917359908942?text=Hi%20EarnEdge%20Global!%20I%20am%20interested%20in%20the%20Premium%20Package%20(100%20Reviews%20-%20%24179).%20Please%20share%20details." target="_blank" class="pkg-btn-wp">💬 WhatsApp — Alt Number</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider" style="margin:0 0 56px"></div>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <span class="cs-label">💬 Have questions?</span>
+    <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20have%20a%20query%20about%20your%20Google%20Reviews%20service." target="_blank" class="contact-btn cb-wp">💬 WhatsApp — +91 94090 23210</a>
+    <a href="https://wa.me/917359908942?text=Hi%20EarnEdge%20Global!%20I%20have%20a%20query%20about%20your%20Google%20Reviews%20service." target="_blank" class="contact-btn cb-wp2">💬 WhatsApp — +91 73599 08942</a>
+    <a href="/cdn-cgi/l/email-protection#7a15170a1b1e1213031b08540e081b1e13141d3a1d171b13165419151745090f18101f190e473d15151d161f5f484a281f0c131f0d095f484a2b0f1f0803" class="contact-btn cb-email">📧 Email Us</a>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="sec-pad">
+    <div class="sec-eye">Who We Help</div>
+    <div class="sec-title">Perfect for <span>Every Local Business</span></div>
+    <div class="sec-sub">If your customers search Google before visiting — you need more reviews.</div>
+    <div class="biz-grid">
+      <div class="biz-card"><div class="biz-icon">🍕</div><div class="biz-name">Restaurants</div><div class="biz-note">More reviews = more diners</div></div>
+      <div class="biz-card"><div class="biz-icon">💈</div><div class="biz-name">Salons & Spas</div><div class="biz-note">Build trust fast</div></div>
+      <div class="biz-card"><div class="biz-icon">🏋️</div><div class="biz-name">Gyms</div><div class="biz-note">Beat competition</div></div>
+      <div class="biz-card"><div class="biz-icon">🦷</div><div class="biz-name">Dentists</div><div class="biz-note">Patients check reviews</div></div>
+      <div class="biz-card"><div class="biz-icon">🏠</div><div class="biz-name">Real Estate</div><div class="biz-note">Credibility matters</div></div>
+      <div class="biz-card"><div class="biz-icon">🚗</div><div class="biz-name">Auto Shops</div><div class="biz-note">High local competition</div></div>
+      <div class="biz-card"><div class="biz-icon">🏥</div><div class="biz-name">Clinics</div><div class="biz-note">Trust = more patients</div></div>
+      <div class="biz-card"><div class="biz-icon">🍔</div><div class="biz-name">Cafes & Bars</div><div class="biz-note">Get discovered online</div></div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:0 0 56px"></div>
+
+  <!-- WHY US -->
+  <div class="sec-pad">
+    <div class="sec-eye">Why EarnEdge Global</div>
+    <div class="sec-title">Why Businesses <span>Choose Us</span></div>
+    <div class="why-grid">
+      <div class="why-card"><div class="wc-icon">💰</div><div class="wc-title">78% Cheaper</div><div class="wc-desc">Competitors charge $8–$15 per review. We deliver the same quality starting at just $49 for 20 reviews.</div></div>
+      <div class="why-card"><div class="wc-icon">⚡</div><div class="wc-title">Fast Delivery</div><div class="wc-desc">Reviews delivered within 7 days. No long waits, no delays. Fast results every time.</div></div>
+      <div class="why-card"><div class="wc-icon">📸</div><div class="wc-title">Screenshot Proof</div><div class="wc-desc">We send a full screenshot report of every review posted. Full transparency, always.</div></div>
+      <div class="why-card"><div class="wc-icon">🔒</div><div class="wc-title">Safe Process</div><div class="wc-desc">Reviews spread naturally over days from different accounts. Looks completely organic.</div></div>
+      <div class="why-card"><div class="wc-icon">💬</div><div class="wc-title">WhatsApp Support</div><div class="wc-desc">Direct WhatsApp access to our team. Get updates, ask questions, track your order anytime.</div></div>
+      <div class="why-card"><div class="wc-icon">🤝</div><div class="wc-title">No Contracts</div><div class="wc-desc">Pay per package. No monthly fees, no commitments. Simple one-time payment, real results.</div></div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:0 0 56px"></div>
+
+  <!-- HOW IT WORKS -->
+  <div class="sec-pad">
+    <div style="text-align:center;margin-bottom:32px">
+      <div class="sec-eye">Process</div>
+      <div class="sec-title">How It <span>Works</span></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Choose Your Package</div><div class="step-desc">Select Starter, Standard or Premium. Choose a plan and contact us on WhatsApp — we'll guide you through everything.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Send Payment + Google Maps Link</div><div class="step-desc">We'll share payment details on WhatsApp. Send payment confirmation and your Google Maps link.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">We Deliver Your Reviews</div><div class="step-desc">Our network posts genuine varied reviews spread naturally over 7 days. Looks 100% organic.</div></div></div>
+      <div class="step"><div class="step-num">04</div><div><div class="step-title">Receive Full Report</div><div class="step-desc">We send a complete screenshot report on WhatsApp. Your rating goes up, more customers come in.</div></div></div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:0 0 56px"></div>
+
+  <!-- TESTIMONIALS -->
+  <div class="sec-pad">
+    <div class="sec-eye">Client Reviews</div>
+    <div class="sec-title">What Our <span>Clients Say</span></div>
+    <div class="testi-grid">
+      <div class="tc"><div class="tc-stars">⭐⭐⭐⭐⭐</div><div class="tc-text">"We went from 12 to 62 reviews in one week. Foot traffic increased noticeably the very next month. Best investment we made this year."</div><div class="tc-author"><div class="tc-av" style="background:linear-gradient(135deg,#1a5fc8,#2d7ef7)">M</div><div><div class="tc-name">Mike R.</div><div class="tc-biz">🍕 Restaurant — Chicago, IL</div></div></div></div>
+      <div class="tc"><div class="tc-stars">⭐⭐⭐⭐⭐</div><div class="tc-text">"Got the Standard package and all 50 reviews came in exactly as promised. WhatsApp support was super responsive. Highly recommend!"</div><div class="tc-author"><div class="tc-av" style="background:linear-gradient(135deg,#c9a84c,#e8c96a)">S</div><div><div class="tc-name">Sarah L.</div><div class="tc-biz">💈 Hair Salon — Austin, TX</div></div></div></div>
+      <div class="tc"><div class="tc-stars">⭐⭐⭐⭐⭐</div><div class="tc-text">"My gym went from 3.8 to 4.6 stars. New memberships are up 30% this month. Cheapest and most reliable service I found!"</div><div class="tc-author"><div class="tc-av" style="background:linear-gradient(135deg,#16a34a,#22c55e)">J</div><div><div class="tc-name">James T.</div><div class="tc-biz">🏋️ Fitness Center — Miami, FL</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="fcta-box">
+    <div class="fcta-tag">🔥 Limited Time Pricing</div>
+    <h2>Ready to Get More<br><span>Customers From Google?</span></h2>
+    <p>Join 500+ USA businesses already growing with EarnEdge Global.<br>Get started today — results in 7 days guaranteed.</p>
+    <div class="fcta-btns">
+      <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20want%20to%20get%20more%20Google%20reviews%20for%20my%20business.%20Please%20share%20your%20packages%20and%20payment%20details." target="_blank" class="btn-main">💬 Contact Us to Get Started</a>
+      <a href="https://wa.me/919409023210?text=Hi!%20I%20want%20to%20get%20more%20Google%20reviews%20for%20my%20business.%20Please%20help!" target="_blank" class="btn-wp">💬 WhatsApp Us</a>
+    </div>
+  </div>
+
+</div><!-- end wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><span class="e">Earn</span><span class="g">Edge</span> Global</div>
+  <div class="f-contacts">
+    <a href="https://wa.me/919409023210" target="_blank" class="f-contact-btn fc-wp">💬 +91 94090 23210</a>
+    <a href="https://wa.me/917359908942" target="_blank" class="f-contact-btn fc-wp">💬 +91 73599 08942</a>
+    <a href="/cdn-cgi/l/email-protection#5a35372a3b3e3233233b28742e283b3e33343d1a3d373b333674393537" class="f-contact-btn fc-email">📧 <span class="__cf_email__" data-cfemail="d6b9bba6b7b2bebfafb7a4f8a2a4b7b2bfb8b196b1bbb7bfbaf8b5b9bb">[email&#160;protected]</span></a>
+  </div>
+  <p>🇺🇸 Serving Local Businesses Across the USA &nbsp;·&nbsp; © 2026 EarnEdge Global</p>
+</footer>
+
+<!-- MOBILE FLOAT -->
+<div class="float-bar">
+  <a href="https://wa.me/919409023210?text=Hi%20EarnEdge%20Global!%20I%20want%20to%20get%20Google%20reviews%20for%20my%20business.%20Please%20share%20details." target="_blank" class="fb-btn fb-pay">💬 Contact Us</a>
+  <a href="https://wa.me/919409023210?text=Hi!%20I%20want%20more%20Google%20reviews%20for%20my%20business." target="_blank" class="fb-btn fb-wp">💬 WhatsApp</a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.tar
